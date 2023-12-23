@@ -51,6 +51,7 @@ class UserController extends Controller
         }
         $user->update($data);
 
+        return 'teste';
         return new UserResource($user);
     }
 
