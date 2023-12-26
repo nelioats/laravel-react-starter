@@ -45,15 +45,18 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $id)
     {
-        $data = $request->validated();
-        if(isset($data['password'])){
-            $data['password'] = bcrypt($data['password']);
-        }
-        return dd('chegou');
 
-        $id->update($data);
+        return response('testando vai');
 
-        return new UserResource($id);
+        // $data = $request->validated();
+        // if(isset($data['password'])){
+        //     $data['password'] = bcrypt($data['password']);
+        // }
+        
+
+        // $id->update($data);
+
+        // return new UserResource($id);
     }
 
     /**
