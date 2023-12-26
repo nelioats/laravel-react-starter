@@ -43,7 +43,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $id)
+    public function update(UpdateUserRequest $request, User $user)
   
     {
 
@@ -53,9 +53,9 @@ class UserController extends Controller
         }
         
 
-        $id->update($data);
+        $user->update($data);
 
-        return new UserResource($id);
+        return new UserResource($user);
     }
 
     /**
