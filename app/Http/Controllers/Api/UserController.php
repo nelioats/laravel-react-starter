@@ -43,16 +43,15 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $id)
     {
         $data = $request->validated();
         if(isset($data['password'])){
             $data['password'] = bcrypt($data['password']);
         }
-        $user->update($data);
+        $id->update($data);
 
-        return 'testando';
-        return new UserResource($user);
+        return new UserResource($id);
     }
 
     /**
