@@ -24,8 +24,20 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:55',
-            'email' => 'required|email|unique:users,email'.$this->id, //que o email seja unico para todos, exceto para meu id (ou seja, ele vai aceitar ser atualizado)
+            'email' => 'required|email|unique:users,email,'.$this->id, //que o email seja unico para todos, exceto para meu id (ou seja, ele vai aceitar ser atualizado)
             'password' => [
+                'confirmed',
+                Password::min(8)
+                ->letters()
+                ->symbols()
+            ]
+        ];
+
+        return [
+            'name' => 'required|string|max:55',
+            'email' => 'required|email|unique:users,email',
+            'password' => [
+                'required',
                 'confirmed',
                 Password::min(8)
                 ->letters()
