@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function(){
         return $request->user();
     });
 
-    Route::post('/users_update/{id}', [UserController::class, 'update']);
+   // Route::post('/users_update/{id}', [UserController::class, 'update']);
     Route::apiResource('/users', UserController::class);
    
 

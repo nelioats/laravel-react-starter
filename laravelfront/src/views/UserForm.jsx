@@ -39,9 +39,7 @@ const UserForm = () => {
 
         if(user.id){
         
-            
-
-            axiosClient.post(`/users_update/${user.id}`,user)
+                axiosClient.put(`/users/${user.id}`,user)
                 .then(() => {
                     setNotification("Usuário atualizado com sucesso!")
                     navigate('/users')
@@ -50,10 +48,24 @@ const UserForm = () => {
                     //console.log(err);
                     const response = err.response;
                       if(response && response.status === 422){
-                        console.log(response.data.errors);
+                        //console.log(response.data.errors);
                         setErrors(response.data.errors)
                       }
                   })
+
+            // axiosClient.post(`/users_update/${user.id}`,user)
+            //     .then(() => {
+            //         setNotification("Usuário atualizado com sucesso!")
+            //         navigate('/users')
+            //     })
+            //     .catch(err => {
+            //         //console.log(err);
+            //         const response = err.response;
+            //           if(response && response.status === 422){
+            //             console.log(response.data.errors);
+            //             setErrors(response.data.errors)
+            //           }
+            //       })
 
 
         }else{
