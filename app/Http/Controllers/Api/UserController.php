@@ -49,6 +49,8 @@ class UserController extends Controller
         if(isset($data['password'])){
             $data['password'] = bcrypt($data['password']);
         }
+        return dd('chegou');
+
         $id->update($data);
 
         return new UserResource($id);
